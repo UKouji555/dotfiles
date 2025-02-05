@@ -1,0 +1,13 @@
+[[plugins]]
+repo = "Shougo/deol.nvim"
+lazy = true
+on_cmd = ["Deol"]
+
+hook_add = '''
+lua << EOF
+vim.g["deol#shell"] = "zsh"
+vim.g["deol#prompt"] = "$ "
+vim.g["deol#winheight"] = 15
+vim.g["deol#toggle"] = 1
+EOF
+'''

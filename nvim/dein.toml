@@ -39,3 +39,7 @@ lazy = 0
 [[plugins]]
 repo = "nvim-tree/nvim-web-devicons"
 lazy = 0
+
+[[plugins]]
+repo = "akinsho/bufferline.nvim"
+depends = ["nvim-tree/nvim-web-devicons"]
