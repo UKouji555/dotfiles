@@ -28,6 +28,9 @@ repo = "vim-denops/denops.vim"
 on_event = "VimEnter"
 
 [[plugins]]
+repo = 'vim-denops/denops-shared-server.vim'
+
+[[plugins]]
 repo = "nvim-tree/nvim-tree.lua"
 hook_add = '''
 lua << EOF
