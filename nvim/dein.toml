@@ -125,7 +125,7 @@ lspconfig.efm.setup {
     rootMarkers = { ".git/" },
     languages = {
       lua = {
-        { formatCommand = "stylua -g '*.lua' -g '!*.spec.lua' -- ." -- .", formatStdin = true }
+        { formatCommand = "stylua -g '*.lua' -g '!*.spec.lua' -- .", formatStdin = true }
       }
     }
   }

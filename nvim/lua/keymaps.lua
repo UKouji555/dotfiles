@@ -9,7 +9,12 @@ vim.keymap.set("n", "e", ":NvimTreeOpen<CR>")
 
 -- deol.nvim
 -- terminal start
-vim.api.nvim_set_keymap("n", "1t", ":call deol#start(#{ command: 'zsh', split: 'floating', winheight: 700, winwidth: 900, winrow: (&lines - 700) / 2, wincol: (&columns - 900) / 2 })<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"1t",
+	":call deol#start(#{ command: 'zsh', split: 'floating', winheight: 700, winwidth: 900, winrow: (&lines - 700) / 2, wincol: (&columns - 900) / 2 })<CR>",
+	{ noremap = true, silent = true }
+)
 
 -- terminal stop
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>:q<CR>", { noremap = true, silent = true })

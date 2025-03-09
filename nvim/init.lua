@@ -1,6 +1,6 @@
 local dpp_src = "$HOME/.cache/dpp/repos/github.com/Shougo/dpp.vim"
 -- プラグイン内のLuaモジュールを読み込むため、先にruntimepathに追加する必要があります。
-vim.opt.runtimepath:prepend(dpp_src) 
+vim.opt.runtimepath:prepend(dpp_src)
 local dpp = require("dpp")
 
 local dpp_base = "~/.cache/dpp/"
@@ -26,22 +26,22 @@ vim.opt.runtimepath:append(ext_installer)
 -- vim.g["denops#debug"] = 1
 
 if dpp.load_state(dpp_base) then
-  vim.opt.runtimepath:prepend(denops_src)
+	vim.opt.runtimepath:prepend(denops_src)
 
-  vim.api.nvim_create_autocmd("User", {
-	  pattern = "DenopsReady",
-  	callback = function ()
-		vim.notify("vim load_state is failed")
-  		dpp.make_state(dpp_base, dpp_config)
-  	end
-  })
+	vim.api.nvim_create_autocmd("User", {
+		pattern = "DenopsReady",
+		callback = function()
+			vim.notify("vim load_state is failed")
+			dpp.make_state(dpp_base, dpp_config)
+		end,
+	})
 end
 
 vim.api.nvim_create_autocmd("User", {
 	pattern = "Dpp:makeStatePost",
-	callback = function ()
+	callback = function()
 		vim.notify("dpp make_state() is done")
-	end
+	end,
 })
 
 require("keymaps")
@@ -49,9 +49,9 @@ require("settings")
 
 vim.api.nvim_create_augroup("MyLSPAutoFormat", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.lua" },
-  callback = function()
-    vim.lsp.buf.format({ async = false })
-  end,
-  group = "MyLSPAutoFormat",
+	pattern = { "*.lua" },
+	callback = function()
+		vim.lsp.buf.format({ async = false })
+	end,
+	group = "MyLSPAutoFormat",
 })
