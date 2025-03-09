@@ -11,3 +11,7 @@ vim.g["deol#winheight"] = 15
 vim.g["deol#toggle"] = 1
 EOF
 '''
+
+[[plugins]]
+repo = 'github.com/tyru/capture.vim'
+on_cmd = ['Capture']
