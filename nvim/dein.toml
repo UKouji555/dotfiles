@@ -118,18 +118,18 @@ lspconfig.ts_ls.setup {
   },
 }
 
-lspconfig.efm.setup {
-  init_options = { documentFormatting = true },
-  filetypes = { "lua" },  -- Lua ファイルに適用
-  settings = {
-    rootMarkers = { ".git/" },
-    languages = {
-      lua = {
-        { formatCommand = "stylua -g '*.lua' -g '!*.spec.lua' -- .", formatStdin = true }
-      }
-    }
-  }
-}
+--lspconfig.efm.setup {
+--  init_options = { documentFormatting = true },
+--  filetypes = { "lua" },  -- Lua ファイルに適用
+--  settings = {
+--    rootMarkers = { ".git/" },
+--    languages = {
+--      lua = {
+--        { formatCommand = "stylua -g '*.lua' -g '!*.spec.lua' -- .", formatStdin = true }
+--      }
+--    }
+--  }
+--}
 EOF
 '''
 
