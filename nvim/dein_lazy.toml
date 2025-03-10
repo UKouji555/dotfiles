@@ -114,3 +114,6 @@ vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 EOF
 '''
 
+[[plugins]]
+repo = "simeji/winresizer"
+on_event = ["BufReadPre", "BufNewFile"]

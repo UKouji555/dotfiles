@@ -31,3 +31,9 @@ current_listchars.space = "."
 vim.opt.listchars = current_listchars
 -- 不可視文字を表示する(set list（VimScript の set list と同じ意味）)
 vim.opt.list = true
+
+-- telescope.nvim
+vim.keymap.set("n", "ff", ":Telescope find_files<CR>")
+vim.keymap.set("n", "fg", ":Telescope live_grep<CR>")
+vim.keymap.set("n", "fb", ":Telescope buffers<CR>")
+vim.keymap.set("n", "fh", ":Telescope help_tags<CR>")
