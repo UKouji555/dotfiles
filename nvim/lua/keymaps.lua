@@ -37,3 +37,11 @@ vim.keymap.set("n", "ff", ":Telescope find_files<CR>")
 vim.keymap.set("n", "fg", ":Telescope live_grep<CR>")
 vim.keymap.set("n", "fb", ":Telescope buffers<CR>")
 vim.keymap.set("n", "fh", ":Telescope help_tags<CR>")
+
+vim.api.nvim_create_user_command("DppUpdate", function()
+	vim.cmd("call dpp#async_ext_action('installer', 'update')")
+end, { desc = "update dpp.nvim plugins" })
+
+vim.api.nvim_create_user_command("DppInstall", function()
+	vim.cmd("call dpp#async_ext_action('installer', 'install')")
+end, { desc = "install dpp.nvim plugins" })

@@ -20,7 +20,13 @@ on_cmd = ['Capture']
 [[plugins]]
 repo = "stevearc/conform.nvim"
 on_event = "BufWritePre"
-on_cmd = ["ConformInfo", "Format", "FormatToggle", "FormatEnable", "FormatDisable"]
+on_cmd = [
+  "ConformInfo",
+  "Format",
+  "FormatToggle",
+  "FormatEnable",
+  "FormatDisable",
+]
 hook_source = '''
 lua << EOF
 local conform = require("conform")
@@ -40,9 +46,9 @@ conform.setup({
   end,
   formatters_by_ft = {
     lua = { "stylua" },
-    javascript = { "prettierd", "prettier" },
-    typescript = { "prettier" },
-    typescriptreact = { "prettier" },
+    javascript = { "biome", "prettierd", "prettier" },
+    typescript = { "biome", "prettierd", "prettier" },
+    typescriptreact = { "biome", "prettierd", "prettier" },
     vue = { "prettier" },
     php = { "php_cs_fixer", "phpcbf" },
     blade = { "blade-formatter" },
@@ -50,6 +56,7 @@ conform.setup({
     json = { "jq" },
     markdown = { "markdown-toc" },
     html = { "html_beautify" },
+    toml = { "taplo" },
   },
   formatters = {
     shfmt = {
@@ -126,3 +133,7 @@ lua << EOF
 require("insx.preset.standard").setup()
 EOF
 '''
+
+[[plugins]] # vimdoc-ja
+repo = 'github.com/vim-jp/vimdoc-ja'
+hook_add = 'set helplang=ja,en'
