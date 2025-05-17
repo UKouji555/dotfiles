@@ -26,22 +26,22 @@ vim.opt.runtimepath:append(ext_installer)
 -- vim.g["denops#debug"] = 1
 
 if dpp.load_state(dpp_base) then
-	vim.opt.runtimepath:prepend(denops_src)
+  vim.opt.runtimepath:prepend(denops_src)
 
-	vim.api.nvim_create_autocmd("User", {
-		pattern = "DenopsReady",
-		callback = function()
-			vim.notify("vim load_state is failed")
-			dpp.make_state(dpp_base, dpp_config)
-		end,
-	})
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "DenopsReady",
+    callback = function()
+      vim.notify("vim load_state is failed")
+      dpp.make_state(dpp_base, dpp_config)
+    end,
+  })
 end
 
 vim.api.nvim_create_autocmd("User", {
-	pattern = "Dpp:makeStatePost",
-	callback = function()
-		vim.notify("dpp make_state() is done")
-	end,
+  pattern = "Dpp:makeStatePost",
+  callback = function()
+    vim.notify("dpp make_state() is done")
+  end,
 })
 
 require("keymaps")
