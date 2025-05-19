@@ -123,7 +123,11 @@ on_cmd = ['Capture']
 [[plugins]]
 repo = "simeji/winresizer"
 on_event = ["BufReadPre", "BufNewFile"]
-
+hook_source = '''
+lua << EOF
+vim.g.winresizer_start_key = "<F3>"
+EOF
+'''
 [[plugins]]
 repo = "hrsh7th/nvim-insx"
 on_event = "InsertEnter"
