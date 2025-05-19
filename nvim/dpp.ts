@@ -3,8 +3,8 @@ import {
   ContextBuilder,
   Dpp,
   Plugin,
-} from "https://deno.land/x/dpp_vim@v0.0.5/types.ts";
-import { Denops, fn } from "https://deno.land/x/dpp_vim@v0.0.5/deps.ts";
+} from "https://deno.land/x/dpp_vim@v1.0.0/types.ts";
+import { Denops, fn } from "https://deno.land/x/dpp_vim@v1.0.0/deps.ts";
 
 export class Config extends BaseConfig {
   override async config(args: {
@@ -36,35 +36,21 @@ export class Config extends BaseConfig {
 
     const tomls: Toml[] = [];
     tomls.push(
-      await args.dpp.extAction(
-        args.denops,
-        context,
-        options,
-        "toml",
-        "load",
-        {
-          path: await fn.expand(args.denops, dotfilesDir + "dein.toml"),
-          options: {
-            lazy: false,
-          },
+      (await args.dpp.extAction(args.denops, context, options, "toml", "load", {
+        path: await fn.expand(args.denops, dotfilesDir + "dein.toml"),
+        options: {
+          lazy: false,
         },
-      ) as Toml,
+      })) as Toml,
     );
 
     tomls.push(
-      await args.dpp.extAction(
-        args.denops,
-        context,
-        options,
-        "toml",
-        "load",
-        {
-          path: await fn.expand(args.denops, dotfilesDir + "dein_lazy.toml"),
-          options: {
-            lazy: true,
-          },
+      (await args.dpp.extAction(args.denops, context, options, "toml", "load", {
+        path: await fn.expand(args.denops, dotfilesDir + "dein_lazy.toml"),
+        options: {
+          lazy: true,
         },
-      ) as Toml,
+      })) as Toml,
     );
 
     const recordPlugins: Record<string, Plugin> = {};
@@ -72,7 +58,6 @@ export class Config extends BaseConfig {
     const hooksFiles: string[] = [];
 
     tomls.forEach((toml) => {
-
       for (const plugin of toml.plugins) {
         recordPlugins[plugin.name] = plugin;
       }
@@ -92,7 +77,7 @@ export class Config extends BaseConfig {
       }
     });
 
-    const lazyResult = await args.dpp.extAction(
+    const lazyResult = (await args.dpp.extAction(
       args.denops,
       context,
       options,
@@ -101,9 +86,7 @@ export class Config extends BaseConfig {
       {
         plugins: Object.values(recordPlugins),
       },
-    ) as LazyMakeStateResult;
-
-    console.log(lazyResult);
+    )) as LazyMakeStateResult;
 
     return {
       plugins: lazyResult.plugins,
