@@ -27,5 +27,6 @@ yelp/
 goa-1.0
 nautilus
 update-notifier
-
-efm-langserver
+gtk-4.0
+gnome-session
+lazy
